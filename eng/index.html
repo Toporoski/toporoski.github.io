@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>João Vithor Toporoski Araújo · Resume & Portfolio</title>
+  <meta name="description" content="Resume and portfolio of João Vithor Toporoski Araújo — Programmer and Digital Security Specialist (Londrina, Brazil)." />
+  <link rel="canonical" href="https://toporoski.dev.br/eng" />
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="João Vithor Toporoski Araújo · Resume & Portfolio" />
+  <meta property="og:description" content="Programmer and Digital Security Specialist (Londrina, Brazil)." />
+  <meta property="og:url" content="https://toporoski.dev.br/eng" />
+  <meta property="og:image" content="/assets/cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --text: #f5f5f5;
+      --muted: #a3a3a3;
+      --card: #0f0f0f;
+      --line: #262626;
+      --brand: #f5c518;
+      --brand-ink: #2a2300;
+      --chip: #111111;
+      --shadow: none;
+      --radius: 16px;
+    }
+    html { color-scheme: dark; }
+
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font: 400 16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans"; }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 32px 20px 96px; }
+
+    header.site { display:grid; gap:16px; align-items:center; grid-template-columns:96px 1fr; padding:24px; background:var(--card); border:1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .avatar { width:96px; height:96px; border-radius:50%; object-fit:cover; border:2px solid var(--line); }
+    .title { margin:0; font-size:clamp(22px,3.6vw,36px); line-height:1.2; }
+    .subtitle { margin:4px 0 0; color:var(--muted); font-size:15px; }
+
+    .meta { display:flex; flex-wrap:wrap; gap:10px 12px; margin-top:8px; }
+    .chip, .chip-link { display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border:1px solid var(--line); border-radius:999px; background:var(--chip); font-size:14px; color:inherit; }
+    .chip-link { text-decoration:none; }
+
+    .actions { margin-top:8px; display:flex; gap:12px; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:10px; border:1px solid var(--line); background:var(--card); color:var(--text); box-shadow:var(--shadow); cursor:pointer; font-weight:700; }
+    .btn.primary { background:var(--brand); color:#0b0b0b; border-color:transparent; }
+    .btn:focus-visible { outline:3px solid var(--brand); outline-offset:2px; }
+
+    .layout { display:grid; grid-template-columns:1fr; gap:24px; margin-top:28px; }
+    .layout > * { min-width: 0; }
+    aside.sidebar { position: static; align-self:start; display:grid; gap:16px; height:fit-content; z-index: 1; }
+    @media (min-width: 980px){
+      .layout { grid-template-columns:320px 1fr; }
+      aside.sidebar { position: sticky; top: 20px; }
+    }
+
+    main.area { display:grid; gap:24px; min-width: 0; }
+
+    section.card { background:var(--card); border:1px solid var(--line); border-radius: var(--radius); padding:24px; box-shadow: var(--shadow); }
+    section.card h2 { margin:0 0 12px; font-size:18px; letter-spacing:.2px; }
+    section.card h2::after { content: ""; display:block; width: 40px; height: 2px; background: var(--brand); margin-top:8px; border-radius:2px; }
+    section.card p { margin:0 0 10px; }
+    .list { list-style:none; padding:0; margin:0; display:grid; gap:8px; }
+
+    .timeline { position:relative; padding-left:18px; }
+    .timeline::before { content:""; position:absolute; left:5px; top:2px; bottom:2px; width:2px; background:var(--line); }
+    .event { position:relative; padding:8px 0 8px 12px; }
+    .event::before { content:""; position:absolute; left:-1px; top:16px; width:10px; height:10px; background:var(--brand); border-radius:50%; box-shadow: 0 0 0 2px var(--card); }
+    .event h3 { margin:0 0 2px; font-size:16px; }
+    .event .where { color:var(--muted); font-size:14px; }
+
+    .proj-grid { display:grid; gap:16px; grid-template-columns:1fr; }
+    @media (min-width:760px){ .proj-grid { grid-template-columns:1fr 1fr; } }
+    @media (min-width:1100px){ .proj-grid { grid-template-columns:1fr 1fr 1fr; } }
+    .proj-card h3 { margin:0 0 6px; font-size:16px; color: var(--text); }
+    .proj-card p { margin:0 0 10px; color:var(--muted); }
+    .proj-card .stack { display:flex; flex-wrap:wrap; gap:8px; margin: 6px 0 8px; }
+    .proj-card .links { display:flex; gap:10px; font-size:14px; }
+
+    footer { color:var(--muted); text-align:center; margin-top:40px; font-size:14px; }
+
+    @media print{ .actions, nav, .skip { display:none !important; } body{ background:#fff; color:#000; } .container{ padding:0; } section.card, header.site{ border:0; box-shadow:none; padding:0; } }
+
+    @media (prefers-reduced-motion:no-preference){ .card, header.site { transition: transform .2s ease, box-shadow .2s ease; } .card:hover { transform: translateY(-2px); } }
+
+    .skip { position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip:focus { position:static; width:auto; height:auto; padding:8px 12px; background:var(--brand); color:#0b0b0b; border-radius:8px; }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "João Vithor Toporoski Araújo",
+    "jobTitle": "Programmer and Digital Security Specialist",
+    "email": "mailto:contato@toporoski.dev.br",
+    "address": {"@type": "PostalAddress", "addressLocality": "Londrina", "addressRegion": "PR", "addressCountry": "BR"},
+    "url": "https://toporoski.dev.br/eng",
+    "sameAs": [
+      "https://github.com/Toporoski",
+      "https://www.linkedin.com/in/jo%C3%A3o-vithor-toporoski-10b1b2297/",
+      "https://toporoski.dev.br/portfolio"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <div class="container">
+    <header class="site" role="banner">
+      <img class="avatar" src="/assets/foto.jpg" alt="Photo of João Vithor Toporoski Araújo" loading="lazy" decoding="async" />
+      <div>
+        <h1 class="title">João Vithor Toporoski Araújo</h1>
+        <p class="subtitle">Programmer · Digital Security Specialist</p>
+        <div class="meta" aria-label="Contact information and links">
+          <span class="chip">Londrina, PR</span>
+          <span class="chip"><a href="mailto:contato@toporoski.dev.br" id="mailto">contato@toporoski.dev.br</a> <button class="btn" style="padding:4px 8px" aria-label="Copy e-mail" id="copyMail" title="Copy e-mail">📋</button></span>
+          <a class="chip-link" href="https://github.com/Toporoski" target="_blank" rel="noopener">GitHub</a>
+          <a class="chip-link" href="https://www.linkedin.com/in/jo%C3%A3o-vithor-toporoski-10b1b2297/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="chip-link" href="/portfolio" target="_blank" rel="noopener">Portfolio</a>
+        </div>
+        <div class="actions">
+          <button class="btn primary" id="printCV">Download PDF</button>
+          <a class="btn" href="#projects">View projects</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar" aria-label="Sidebar information">
+        <section class="card">
+          <h2>Availability</h2>
+          <ul class="list">
+            <li>Open to freelance and full-time roles</li>
+            <li>Average response time: <strong>~24h</strong></li>
+          </ul>
+        </section>
+        <section class="card">
+          <h2>Location</h2>
+          <p>Londrina, PR · Brazil</p>
+        </section>
+        <section class="card">
+          <h2>Contact</h2>
+          <div class="list">
+            <a class="chip-link" href="mailto:contato@toporoski.dev.br">E-mail</a>
+            <a class="chip-link" href="https://github.com/Toporoski" target="_blank" rel="noopener">GitHub</a>
+            <a class="chip-link" href="https://www.linkedin.com/in/jo%C3%A3o-vithor-toporoski-10b1b2297/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </section>
+        <section class="card">
+          <h2>Main stack</h2>
+          <div class="list">
+            <span class="chip">Python</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">HTML/CSS</span>
+            <span class="chip">Linux</span>
+            <span class="chip">Mikrotik</span>
+            <span class="chip">pfSense</span>
+            <span class="chip">Sophos</span>
+          </div>
+        </section>
+        <section class="card">
+          <h2>Certifications</h2>
+          <ul class="list">
+            <li>Linux Essentials — LPI</li>
+            <li>Networking Fundamentals — Cisco</li>
+            <li>Cybersecurity Essentials — Cisco</li>
+          </ul>
+        </section>
+        <section class="card">
+          <h2>Quick links</h2>
+          <ul class="list">
+            <li><a href="#projects">My projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </section>
+      </aside>
+
+      <main id="content" class="area" role="main">
+        <section class="card" id="about">
+          <h2>About me</h2>
+          <p>IT support (remote and on-site) for 2 years, with strong technical communication and a security-first mindset. Experience with networks and firewalls (Sophos, Mikrotik, pfSense), fast hardware/software troubleshooting and Python automations. Interested in system hardening and secure development best practices.</p>
+        </section>
+
+        <section class="card" id="experience">
+          <h2>Experience</h2>
+          <div class="timeline" aria-label="Experience timeline">
+            <div class="event">
+              <h3>IT Technician · <strong>JRB Prime</strong></h3>
+              <div class="where">Londrina/PR · Jan 2023 — present</div>
+              <ul class="list">
+                <li>Remote and on-site support, network management, security and preventive/corrective maintenance.</li>
+                <li>Configuration of <strong>Sophos</strong>, <strong>Mikrotik</strong> and <strong>pfSense</strong>; firewall policies, DHCP, VPN and QoS.</li>
+                <li>Automation of diagnostics and inventory with <strong>Python</strong> and <strong>PowerShell</strong>.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" id="projects">
+          <h2>Projects</h2>
+          <div class="proj-grid">
+            <article class="proj-card">
+              <h3>Guardião Net — Security Dashboard</h3>
+              <p>Lightweight monitoring for home networks and small offices. Alerts for open ports, anomalous traffic and firewall health.</p>
+              <div class="stack"><span class="chip">Python</span><span class="chip">Flask</span><span class="chip">Docker</span></div>
+              <p class="links"><a href="#" target="_blank" rel="noopener">Repository</a> <a href="#" target="_blank" rel="noopener">Demo</a></p>
+            </article>
+
+            <article class="proj-card">
+              <h3>NetProbe CLI</h3>
+              <p>Diagnostic tool (ping, traceroute, DNS, HTTP) with exportable reports.</p>
+              <div class="stack"><span class="chip">Python</span><span class="chip">Click</span><span class="chip">Networking</span></div>
+              <p class="links"><a href="#" target="_blank" rel="noopener">Repository</a></p>
+            </article>
+
+            <article class="proj-card">
+              <h3>HelpDesk Lite</h3>
+              <p>Local helpdesk for tickets: creation, status, filters and PDF export.</p>
+              <div class="stack"><span class="chip">JS</span><span class="chip">HTML/CSS</span><span class="chip">IndexedDB</span></div>
+              <p class="links"><a href="#" target="_blank" rel="noopener">Repository</a></p>
+            </article>
+
+            <article class="proj-card">
+              <h3>BookShelf Cloud</h3>
+              <p>Book manager with search, tags and metadata.</p>
+              <div class="stack"><span class="chip">Node</span><span class="chip">Express</span><span class="chip">SQLite</span></div>
+              <p class="links"><a href="#" target="_blank" rel="noopener">Repository</a></p>
+            </article>
+
+            <article class="proj-card">
+              <h3>AutoPatch PS</h3>
+              <p>Automated software inventory and updates on Windows.</p>
+              <div class="stack"><span class="chip">PowerShell</span><span class="chip">Windows</span></div>
+              <p class="links"><a href="#" target="_blank" rel="noopener">Repository</a></p>
+            </article>
+
+            <article class="proj-card">
+              <h3>TopoPass</h3>
+              <p>Offline password generator with customizable rules.</p>
+              <div class="stack"><span class="chip">Python</span><span class="chip">Tkinter</span></div>
+              <p class="links"><a href="#" target="_blank" rel="noopener">Repository</a></p>
+            </article>
+
+            <article class="proj-card">
+              <h3>InfraWatch</h3>
+              <p>Dashboard for Docker containers, metrics and logs, with e-mail alerts.</p>
+              <div class="stack"><span class="chip">Docker</span><span class="chip">Grafana</span></div>
+              <p class="links"><a href="#" target="_blank" rel="noopener">Repository</a></p>
+            </article>
+
+            <article class="proj-card">
+              <h3>Personal site v2</h3>
+              <p>Portfolio with dark mode, SEO, accessibility and structured data.</p>
+              <div class="stack"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">A11y</span></div>
+              <p class="links"><a href="#" target="_blank" rel="noopener">Repository</a></p>
+            </article>
+
+            <article class="proj-card">
+              <h3>Sentinel DNS</h3>
+              <p>Local resolver with cache and malicious domain blocking via lists.</p>
+              <div class="stack"><span class="chip">Go</span><span class="chip">DNS</span></div>
+              <p class="links"><a href="#" target="_blank" rel="noopener">Repository</a></p>
+            </article>
+
+            <article class="proj-card">
+              <h3>SecureStart</h3>
+              <p>Automated hardening for Windows/Linux with checklist and report.</p>
+              <div class="stack"><span class="chip">Bash</span><span class="chip">PowerShell</span></div>
+              <p class="links"><a href="#" target="_blank" rel="noopener">Repository</a></p>
+            </article>
+          </div>
+        </section>
+
+        <section class="card" id="education">
+          <h2>Education</h2>
+          <ul class="list">
+            <li><strong>Computer Science</strong> — UNOPAR (4th semester)</li>
+            <li><strong>Computer and Network Maintenance</strong> — SENAC/PR</li>
+          </ul>
+        </section>
+
+        <section class="card" id="skills">
+          <h2>Skills</h2>
+          <div class="list" style="display:flex;flex-wrap:wrap;gap:8px;">
+            <span class="chip">Linux</span>
+            <span class="chip">Command line</span>
+            <span class="chip">Networking (DHCP, DNS, VLAN)</span>
+            <span class="chip">Firewalls (Sophos/Mikrotik/pfSense)</span>
+            <span class="chip">Python</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">HTML/CSS</span>
+            <span class="chip">Git & GitHub</span>
+            <span class="chip">PC building</span>
+            <span class="chip">Digital security</span>
+          </div>
+        </section>
+
+        <section class="card" id="languages">
+          <h2>Languages</h2>
+          <ul class="list">
+            <li>Portuguese — Native</li>
+            <li>English — Intermediate</li>
+          </ul>
+        </section>
+
+        <section class="card" id="contact">
+          <h2>Contact</h2>
+          <p>For opportunities and questions: <a href="mailto:contato@toporoski.dev.br">contato@toporoski.dev.br</a></p>
+        </section>
+      </main>
+    </div>
+
+    <footer role="contentinfo">
+      <p>© <span id="year"></span> João Vithor Toporoski Araújo — Automatically updated.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('printCV').addEventListener('click', () => window.print());
+    const copyBtn = document.getElementById('copyMail');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(document.getElementById('mailto').textContent);
+          const label = copyBtn.getAttribute('aria-label');
+          copyBtn.textContent = '✔️'; copyBtn.setAttribute('aria-label','Copied!');
+          setTimeout(()=>{ copyBtn.textContent='📋'; copyBtn.setAttribute('aria-label',label); }, 1400);
+        } catch(e){ alert('Could not copy.'); }
+      });
+    }
+  </script>
+</body>
+</html>
